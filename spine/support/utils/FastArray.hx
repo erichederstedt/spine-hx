@@ -145,14 +145,6 @@ abstract FastArray<T>(FastArrayInternal<T>) from FastArrayInternal<T> {
 		};
 	}
 
-	public function unsafeSet(index:Int, value:T):Void {
-		this.data[index] = value;
-	}
-
-	public function unsafeGet(index:Int):T {
-		return this.data[index];
-	}
-
 	public function indexOf(x:T, ?fromIndex:Int):Int {
 		return this.data.indexOf(x, fromIndex);
 	}
@@ -193,7 +185,7 @@ abstract FastArray<T>(FastArrayInternal<T>) from FastArrayInternal<T> {
 		var len = i + items.length;
 		setSize(len, defaultValue);
 		for (item in items) {
-			unsafeSet(i++, item);
+			set(i++, item);
 			if (--count <= 0)
 				break;
 		}
